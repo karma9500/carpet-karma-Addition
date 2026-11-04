@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.blockforge.generated.carpetkarmaplus.mixin.lithium",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "cn.blockforge.generated.carpetkarmaplus.compat.LithiumMixinPlugin",
+  "mixins": [
+    "HopperHelperMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

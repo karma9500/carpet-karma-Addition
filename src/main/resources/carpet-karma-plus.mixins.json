@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.blockforge.generated.carpetkarmaplus.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BlockItemPlaceMixin",
+    "EntityMixin",
+    "HopperBlockEntityMixin",
+    "ItemStackMixin",
+    "SculkSensorCallbackMixin",
+    "SlotMixin",
+    "TntLootingMixin",
+    "WorldMixin",
+    "BoneMealMixin",
+    "PackedIceMixin",
+    "BundleContentsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

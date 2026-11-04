@@ -1,0 +1,24 @@
+# 构建产物
+build/
+out/
+*.class
+
+# 依赖 / 本地 jar
+libs/
+*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 本地运行
+run/
+logs/
