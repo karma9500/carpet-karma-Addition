@@ -58,7 +58,10 @@ public abstract class HopperHelperMixin {
             continue;
          }
 
-         int moved = Math.min(stack.method_7947(), space);
+         // 漏斗每次操作只搬 1 个（和原版一致）。注意这里的 stack 是漏斗自己那一整摞，
+         // 不是 1 个：Lithium 的 push 路径直接把机器人的库存摞传进来，
+         // 所以绝不能用 stack.method_7947() 当搬运量，否则一次搬满一格。
+         int moved = 1;
          if (current.method_7960()) {
             to.method_5447(slot, stack.method_7971(moved));
          } else {

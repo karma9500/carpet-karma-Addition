@@ -52,7 +52,9 @@ public abstract class HopperBlockEntityMixin {
          return;
       }
 
-      int moved = Math.min(stack.method_7947(), space);
+      // 原版调用方传进来的本来就是 removeStack(slot, 1) 的 1 个，这里固定搬 1 个，
+      // 避免被别的调用方（模组/旧版本）传整摞时一次搬一格。
+      int moved = 1;
       if (target.method_7960()) {
          to.method_5447(slot, stack.method_46651(moved));
       } else {
