@@ -52,9 +52,12 @@ public abstract class HopperBlockEntityMixin {
          return;
       }
 
-      // 原版调用方传进来的本来就是 removeStack(slot, 1) 的 1 个，这里固定搬 1 个，
-      // 避免被别的调用方（模组/旧版本）传整摞时一次搬一格。
-      int moved = 1;
+      // 原版这里本来就是"能塞多少塞多少"，两条调用路径靠 from 区分：
+      //   from == null  → 捡地上的掉落物（method_11247，原版一次把整摞吸进来，会跨槽循环）
+      //   from != null  → 容器之间搬运（调用方传进来的已经是 removeStack(slot, 1) 的 1 个）
+      // 所以保持 min(数量, 剩余空间) 对两条路径各自符合原版；
+      // Lithium 的推送路径传的是"漏斗自己那一整摞"，那个在 HopperHelperMixin 里固定成 1 个。
+      int moved = Math.min(stack.method_7947(), space);
       if (target.method_7960()) {
          to.method_5447(slot, stack.method_46651(moved));
       } else {
