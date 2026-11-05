@@ -14,7 +14,8 @@
     "WorldMixin",
     "BoneMealMixin",
     "PackedIceMixin",
-    "BundleContentsMixin"
+    "BundleContentsMixin",
+    "LiquidExplosionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

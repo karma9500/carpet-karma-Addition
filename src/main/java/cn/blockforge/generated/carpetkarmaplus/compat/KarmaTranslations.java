@@ -98,5 +98,23 @@ public final class KarmaTranslations {
          "Stacking Set",
          "While on, /stack set <item> <count> gives any item (including normally unstackable ones) a custom stack size from 1 to 64. It only applies inside the player's inventory, fake player inventories and ender chests; every other container keeps vanilla stacking rules. /stack remove <item> restores vanilla, /stack list shows current settings."
       );
+      rule(
+         ZH_CN,
+         "liquidExplosion",
+         "液体爆炸",
+         "开启后，TNT 爆炸无视爆炸抗性：水和岩浆会被直接炸掉（原版它们抗性 100，会把爆炸能量吃光），黑曜石、远古残骸这类防爆方块也照样炸掉；基岩、屏障、命令方块这种「不可破坏」的方块仍然不动"
+      );
+      rule(
+         ZH_TW,
+         "liquidExplosion",
+         "液體爆炸",
+         "開啟後，TNT 爆炸無視爆炸抗性：水和岩漿會被直接炸掉（原版它們抗性 100，會把爆炸能量吃光），黑曜石、遠古殘骸這類防爆方塊也照樣炸掉；基岩、屏障、命令方塊這種「不可破壞」的方塊仍然不動"
+      );
+      rule(
+         EN_US,
+         "liquidExplosion",
+         "Liquid Explosion",
+         "TNT explosions ignore blast resistance: water and lava are destroyed outright (vanilla gives them resistance 100, which eats all the blast power), and blast-proof blocks such as obsidian and ancient debris break too. Truly unbreakable blocks (bedrock, barrier, command blocks) still survive."
+      );
    }
 }

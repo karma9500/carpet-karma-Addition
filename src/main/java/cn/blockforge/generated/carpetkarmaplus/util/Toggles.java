@@ -40,4 +40,8 @@ public final class Toggles {
    public static boolean stackingSet() {
       return CARPET_PRESENT && KarmaRules.stackingSet;
    }
+
+   public static boolean liquidExplosion() {
+      return CARPET_PRESENT && KarmaRules.liquidExplosion;
+   }
 }

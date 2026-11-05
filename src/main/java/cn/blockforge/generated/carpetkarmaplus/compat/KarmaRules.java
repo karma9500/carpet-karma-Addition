@@ -39,6 +39,10 @@ public final class KarmaRules {
       categories = {"CKP"}
    )
    public static boolean stackingSet = false;
+   @Rule(
+      categories = {"CKP"}
+   )
+   public static boolean liquidExplosion = false;
 
    private KarmaRules() {
    }
