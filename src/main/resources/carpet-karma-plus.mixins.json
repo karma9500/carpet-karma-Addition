@@ -15,7 +15,9 @@
     "BoneMealMixin",
     "PackedIceMixin",
     "BundleContentsMixin",
-    "FluidBlastingMixin"
+    "FluidBlastingMixin",
+    "TntEntityBlastMixin",
+    "SnowAccumulationMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -43,6 +43,10 @@ public final class KarmaRules {
       categories = {"CKP"}
    )
    public static boolean fluidBlasting = false;
+   @Rule(
+      categories = {"CKP"}
+   )
+   public static boolean noSnowAccumulation = false;
 
    private KarmaRules() {
    }

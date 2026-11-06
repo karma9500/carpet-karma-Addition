@@ -44,4 +44,8 @@ public final class Toggles {
    public static boolean fluidBlasting() {
       return CARPET_PRESENT && KarmaRules.fluidBlasting;
    }
+
+   public static boolean noSnowAccumulation() {
+      return CARPET_PRESENT && KarmaRules.noSnowAccumulation;
+   }
 }

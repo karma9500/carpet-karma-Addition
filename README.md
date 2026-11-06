@@ -19,7 +19,8 @@
 | `boneMealAllGrowth` | 催熟万物 | 骨粉可催生发光地衣、藤蔓、五种活珊瑚、仙人掌、甘蔗；珊瑚需在水下 |
 | `packedIceMeltsToWater` | 浮冰化水 | 不带精准采集挖浮冰会像冰一样化成水且不掉落；带精准采集照常掉落 |
 | `stackingSet` | 堆叠设置 | 见下一节，用 `/stack` 自定义任意物品的堆叠上限（权限等级 0，人人可用） |
-| `liquidExplosion` | 液体爆炸 | TNT 爆炸无视爆炸抗性：水和岩浆被直接炸掉，黑曜石这类防爆方块也照炸（基岩/屏障不动），见下下节 |
+| `fluidBlasting` | 流体爆破 | TNT 爆炸清除范围内的水和岩浆，固体方块完全不受影响（见下节） |
+| `noSnowAccumulation` | 下雪不积雪 | 下雪时不再生成新的雪层，已有雪层也不加厚；结冰、炼药锅不受影响（见下下节） |
 
 开启方式：
 
@@ -68,7 +69,7 @@
 
 ---
 
-## 流体爆破（fluidBlasting）
+## 流体爆破（`fluidBlasting`）
 
 ```
 /carpet fluidBlasting true
@@ -93,6 +94,39 @@
 
 ---
 
+## 下雪不积雪（`noSnowAccumulation`）
+
+```
+/carpet noSnowAccumulation true
+```
+
+开启后，下雪时地面不再形成新的雪层，已经存在的雪层也不会再变厚。
+
+实现上只拦截了一个判断：原版 ServerWorld#tickIceAndSnow 里
+if (maxLayers > 0 && biome.canSetSnow(this, pos)) 这行，我们把 canSetSnow 重定向成 alse。
+所以：
+
+- 雪：不再生成、不再加厚 ✅
+- 结冰（水面冻成冰）：照常 ✅
+- 炼药锅接水 / 接细雪：照常 ✅
+- 其它天气行为：都不受影响 ✅
+
+实测（无头 Fabric 1.21.10 服务端，雪原超平坦世界，/fillbiome 逐个切换群系，每群系探测 256 个方块位置）：
+
+| 群系 | 规则关 | 规则开 |
+|---|---|---|
+| snowy_plains | 积雪 | **不积雪** |
+| snowy_taiga | 积雪 | **不积雪** |
+| ice_spikes | 积雪 | **不积雪** |
+| snowy_beach | 积雪 | **不积雪** |
+| snowy_slopes | 积雪 | **不积雪** |
+| grove | 积雪 | **不积雪** |
+| rozen_peaks | 积雪 | **不积雪** |
+| jagged_peaks | 积雪 | **不积雪** |
+
+8 个会下雪的群系全部覆盖。
+
+---
 ## 安装
 
 1. 装好对应 MC 版本的 [Fabric Loader](https://fabricmc.net/) 与 [Fabric API](https://modrinth.com/mod/fabric-api)

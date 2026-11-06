@@ -116,5 +116,23 @@ public final class KarmaTranslations {
          "Fluid Blasting",
          "TNT explosions ignore the blast resistance of fluids: water and lava are destroyed outright (vanilla gives them resistance 100, which eats the whole blast at the first block), and waterlogged blocks only count their own block resistance. Solid blocks keep vanilla behavior, so obsidian and ancient debris still survive."
       );
+      rule(
+         ZH_CN,
+         "noSnowAccumulation",
+         "下雪不积雪",
+         "开启后，下雪时地面不再形成新的雪层，已有的雪层也不会加厚；结冰、炼药锅接水/接细雪、其它天气行为都不受影响"
+      );
+      rule(
+         ZH_TW,
+         "noSnowAccumulation",
+         "下雪不積雪",
+         "開啟後，下雪時地面不再形成新的雪層，已有的雪層也不會加厚；結冰、煉藥鍋接水/接細雪、其它天氣行為都不受影響"
+      );
+      rule(
+         EN_US,
+         "noSnowAccumulation",
+         "No Snow Accumulation",
+         "While snowing, no new snow layers form on the ground and existing layers stop growing. Ice freezing, cauldrons filling and every other weather behavior are unaffected."
+      );
    }
 }
