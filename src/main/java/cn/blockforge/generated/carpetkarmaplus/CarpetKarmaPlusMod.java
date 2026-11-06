@@ -2,10 +2,12 @@ package cn.blockforge.generated.carpetkarmaplus;
 
 import cn.blockforge.generated.carpetkarmaplus.compat.CarpetKarmaPlusExtension;
 import cn.blockforge.generated.carpetkarmaplus.util.Compat;
+import cn.blockforge.generated.carpetkarmaplus.util.FluidBlast;
 import cn.blockforge.generated.carpetkarmaplus.util.Toggles;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents.AfterDeath;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.class_1282;
 import net.minecraft.class_1297;
@@ -34,6 +36,21 @@ public final class CarpetKarmaPlusMod implements ModInitializer {
          }
 
          registerWitherSkullDrop();
+         registerFluidBlastFlush();
+      }
+   }
+
+   private static void registerFluidBlastFlush() {
+      try {
+         ServerTickEvents.END_SERVER_TICK.register(server -> {
+            try {
+               FluidBlast.flush();
+            } catch (Throwable var2) {
+               LOGGER.warn("[carpet karma Addition] 流体爆破清理失败", var2);
+            }
+         });
+      } catch (Throwable var2) {
+         LOGGER.warn("[carpet karma Addition] 没能挂上流体爆破的 tick 回调", var2);
       }
    }
 

@@ -100,21 +100,21 @@ public final class KarmaTranslations {
       );
       rule(
          ZH_CN,
-         "liquidExplosion",
-         "液体爆炸",
-         "开启后，TNT 爆炸无视爆炸抗性：水和岩浆会被直接炸掉（原版它们抗性 100，会把爆炸能量吃光），黑曜石、远古残骸这类防爆方块也照样炸掉；基岩、屏障、命令方块这种「不可破坏」的方块仍然不动"
+         "fluidBlasting",
+         "流体爆破",
+         "开启后，TNT 爆炸无视流体的爆炸抗性：水和岩浆会被直接炸掉（原版它们抗性 100，第一格就把爆炸能量吃光，所以水里的 TNT 几乎炸不动东西），含水方块也只按方块自身抗性计算；固体方块保持原版，黑曜石、远古残骸这些防爆方块依然炸不掉"
       );
       rule(
          ZH_TW,
-         "liquidExplosion",
-         "液體爆炸",
-         "開啟後，TNT 爆炸無視爆炸抗性：水和岩漿會被直接炸掉（原版它們抗性 100，會把爆炸能量吃光），黑曜石、遠古殘骸這類防爆方塊也照樣炸掉；基岩、屏障、命令方塊這種「不可破壞」的方塊仍然不動"
+         "fluidBlasting",
+         "流體爆破",
+         "開啟後，TNT 爆炸無視流體的爆炸抗性：水和岩漿會被直接炸掉（原版它們抗性 100，第一格就把爆炸能量吃光，所以水裡的 TNT 幾乎炸不動東西），含水方塊也只按方塊自身抗性計算；固體方塊保持原版，黑曜石、遠古殘骸這些防爆方塊依然炸不掉"
       );
       rule(
          EN_US,
-         "liquidExplosion",
-         "Liquid Explosion",
-         "TNT explosions ignore blast resistance: water and lava are destroyed outright (vanilla gives them resistance 100, which eats all the blast power), and blast-proof blocks such as obsidian and ancient debris break too. Truly unbreakable blocks (bedrock, barrier, command blocks) still survive."
+         "fluidBlasting",
+         "Fluid Blasting",
+         "TNT explosions ignore the blast resistance of fluids: water and lava are destroyed outright (vanilla gives them resistance 100, which eats the whole blast at the first block), and waterlogged blocks only count their own block resistance. Solid blocks keep vanilla behavior, so obsidian and ancient debris still survive."
       );
    }
 }

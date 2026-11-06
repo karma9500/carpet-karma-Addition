@@ -42,7 +42,7 @@ public final class KarmaRules {
    @Rule(
       categories = {"CKP"}
    )
-   public static boolean liquidExplosion = false;
+   public static boolean fluidBlasting = false;
 
    private KarmaRules() {
    }

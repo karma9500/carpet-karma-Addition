@@ -41,7 +41,7 @@ public final class Toggles {
       return CARPET_PRESENT && KarmaRules.stackingSet;
    }
 
-   public static boolean liquidExplosion() {
-      return CARPET_PRESENT && KarmaRules.liquidExplosion;
+   public static boolean fluidBlasting() {
+      return CARPET_PRESENT && KarmaRules.fluidBlasting;
    }
 }
