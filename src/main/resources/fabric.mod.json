@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "carpet-karma-plus",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "name": "carpet karma Addition",
   "description": "carpet karma Addition —— Carpet（地毯模组）的附属，十个功能都用 /carpet 指令开关（CKP 分类），默认关闭；支持 Minecraft 1.21 ~ 1.21.10 全部正式版。①带经验修补的工具要掉耐久时扣玩家经验抵掉 ②Carpet 假人不与玩家碰撞 ③空潜影盒可在玩家背包内堆叠，容器内不堆叠 ④命名为「声音抑制器」的箱子让附近幽匿感测体失效 ⑤TNT 炸死的生物按掠夺 III 计算掉落 ⑥被 TNT 炸死的凋灵骷髅有概率掉头颅 ⑦催熟万物：骨粉可催生发光地衣、藤蔓、珊瑚、仙人掌和甘蔗 ⑧浮冰化水：不带精准采集破坏浮冰会像冰一样化成水 ⑨堆叠设置：/stack set 自定义物品堆叠上限（权限 0，人人可用），只在玩家背包/假人背包/末影箱内生效 ⑩流体爆破：TNT 爆炸无视流体抗性，水和岩浆会被炸掉，固体方块的防爆特性不变",
   "icon": "assets/carpet-karma-plus/icon.png",

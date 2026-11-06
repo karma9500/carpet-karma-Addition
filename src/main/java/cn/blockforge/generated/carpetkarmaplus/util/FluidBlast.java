@@ -30,18 +30,48 @@ public final class FluidBlast {
    /** 记下一次爆炸；同一个 tick 里同一位置同威力只记一次。 */
    public static void record(class_1927 explosion, class_3218 world) {
       class_243 center = explosion.method_55109();
-      float power = explosion.method_55107();
+      recordAt(world, center.field_1352, center.field_1351, center.field_1350, explosion.method_55107());
+   }
+
+   /**
+    * 按坐标记一次爆炸。
+    *
+    * <p>同一发 TNT 可能同时被"TNT 实体爆炸入口"和"爆炸行为对象"两处记到，
+    * 这里用 2 格内的距离去重，避免同一发爆炸扫两遍。
+    */
+   public static void recordAt(class_3218 world, double x, double y, double z, float power) {
       List<double[]> list = PENDING.computeIfAbsent(world, key -> new ArrayList<>());
       for (double[] existing : list) {
-         if (existing[0] == center.field_1352
-            && existing[1] == center.field_1351
-            && existing[2] == center.field_1350
-            && existing[3] == power) {
-            return;
+         if (existing[3] == power) {
+            double dx = existing[0] - x;
+            double dy = existing[1] - y;
+            double dz = existing[2] - z;
+            if (dx * dx + dy * dy + dz * dz <= 4.0) {
+               return;
+            }
          }
       }
 
-      list.add(new double[]{center.field_1352, center.field_1351, center.field_1350, power});
+      list.add(new double[]{x, y, z, power});
+   }
+
+   /** 附近 3×3×3 内有没有流体方块（用于廉价判断，避免给整片地下做全量扫描）。 */
+   public static boolean hasFluidNear(class_3218 world, double x, double y, double z) {
+      int cx = (int)Math.floor(x);
+      int cy = (int)Math.floor(y);
+      int cz = (int)Math.floor(z);
+      for (int dx = -1; dx <= 1; dx++) {
+         for (int dy = -1; dy <= 1; dy++) {
+            for (int dz = -1; dz <= 1; dz++) {
+               class_2338 pos = class_2338.method_49637(cx + dx, cy + dy, cz + dz);
+               if (world.method_8320(pos).method_26204() instanceof class_2404) {
+                  return true;
+               }
+            }
+         }
+      }
+
+      return false;
    }
 
    /** 每 tick 结束时清空待处理队列。 */
